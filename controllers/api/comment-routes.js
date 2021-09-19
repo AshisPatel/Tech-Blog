@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../../models');
 
 router.get('/', (req, res) => {
     Comment.findAll({
-        order: [['created_at', 'DESC']]
+        order: [['created_at', 'DESC']],
         include: [
             {
                 model: User,
@@ -15,14 +15,14 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbCommentData => res.status(200).json(dbCommentData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCommentData => res.status(200).json(dbCommentData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
-router.get('/:id', (req,res) => {
+router.get('/:id', (req, res) => {
     Comment.findOne({
         order: [['created_at', 'DESC']],
         include: [
@@ -30,21 +30,23 @@ router.get('/:id', (req,res) => {
                 model: User,
                 attributes: ['username']
             },
-            model: Post,
-            attributes: ['title']
+            {
+                model: Post,
+                attributes: ['title']
+            }
         ]
     })
-    .then(dbCommentData => {
-        if(!dbCommentData) {
-            res.status(404).json({ message: 'No comment with that id was found.' });
-            return;
-        }
-        res.status(200).json(dbCommentData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCommentData => {
+            if (!dbCommentData) {
+                res.status(404).json({ message: 'No comment with that id was found.' });
+                return;
+            }
+            res.status(200).json(dbCommentData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.post('/', (req, res) => {
@@ -53,11 +55,11 @@ router.post('/', (req, res) => {
         post_id: req.body.post_id,
         user_id: req.body.user_id
     })
-    .then(dbCommentData => res.status(200).json(dbCommentData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCommentData => res.status(200).json(dbCommentData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.put('/:id', (req, res) => {
@@ -66,17 +68,17 @@ router.put('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbCommentData => {
-        if(!dbCommentData[0]) {
-            res.status(404).json({ message: 'No comment with that id was found.' });
-            return;
-        }
-        res.status(200).json(dbCommentData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCommentData => {
+            if (!dbCommentData[0]) {
+                res.status(404).json({ message: 'No comment with that id was found.' });
+                return;
+            }
+            res.status(200).json(dbCommentData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.delete('/:id', (req, res) => {
@@ -85,17 +87,17 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbCommentData => {
-        if(!dbCommentData) {
-            res.status(404).json({ message: 'No post with that id found.' });
-            return; 
-        }
-        res.status(200).json(dbCommentData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbCommentData => {
+            if (!dbCommentData) {
+                res.status(404).json({ message: 'No post with that id found.' });
+                return;
+            }
+            res.status(200).json(dbCommentData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
-module.exports = router; 
+module.exports = router;
