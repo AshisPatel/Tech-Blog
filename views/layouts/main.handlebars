@@ -33,8 +33,12 @@
     </header>
     <main>
         {{{body}}}
+        
+        {{#if signedIn}}
         <script src="/javascript/signedInBtns.js"></script>
+        {{else}}
         <script src="/javascript/signedOutBtns.js"></script>
+        {{/if}}
     </main>
     <footer>
         Made with ☕ & 💖

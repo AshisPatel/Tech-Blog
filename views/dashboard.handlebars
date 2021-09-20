@@ -1,0 +1,16 @@
+<article>
+    <div>
+        <h2>Hello, {{posts.user.username}} !</h2>
+    </div>
+    <div>Account Settings</div>
+    <section>
+        <h3>Your Posts:</h3>
+        <ul class="list-group mx-auto w-50">
+            {{#each posts as |post|}}
+            <li class="list-group-item bg-coffee text-cream mb-5 post-item">
+                {{> post-info post }}
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+</article>
