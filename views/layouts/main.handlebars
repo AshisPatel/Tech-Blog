@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +8,37 @@
     <title>Tech Blog</title>
     <link href="/stylesheets/style.css" rel="stylesheet" />
 </head>
+
 <body class="bg-butter">
     {{!-- Main page will always display a navbar at the top and posts in the middle --}}
     <header>
         <nav class="d-flex flex-row justify-content-between p-5 mb-5 bg-coffee">
-            <div class="d-flex flex-row p-0 mr-2"> 
+            <div class="d-flex flex-row p-0 mr-2">
                 <h1 class="text-cream">
-                {{!-- homepage text is a link that links back to homepage --}}
+                    {{!-- homepage text is a link that links back to homepage --}}
                     <a href="/">TECH BLOG</a>
                 </h1>
-            </div>  
+            </div>
             {{!-- Navbar buttons --}}
             <div class="d-flex flex-row">
+                {{#if signedIn}}
                 <button type="button" name="dashboard-btn" class="btn btn-cream text-coffee me-3">Dashboard</button>
+                <button type="button" name="sign-out-btn" class="btn btn-cream text-coffe me-3">Sign-out</button>
+                {{else}}
                 <button type="button" name="sign-in-btn" class="btn btn-cream text-coffee me-3">Sign-in</button>
-                <button type="button" name="sign-up-btn" class="btn btn-cream text-coffee me-3">Sign-up</button>  
+                <button type="button" name="sign-up-btn" class="btn btn-cream text-coffee me-3">Sign-up</button>
+                {{/if}}
             </div>
-        </nav>        
+        </nav>
     </header>
     <main>
         {{{body}}}
-
-    <script src="/javascript/navbar-buttons.js"></script>
+        <script src="/javascript/signedInBtns.js"></script>
+        <script src="/javascript/signedOutBtns.js"></script>
     </main>
     <footer>
         Made with ☕ & 💖
     </footer>
 </body>
+
 </html>

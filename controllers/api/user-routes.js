@@ -134,4 +134,15 @@ router.post('/signin', (req, res) => {
     });
 });
 
+router.post('/signout', (req, res) => {
+    if(req.session.signedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+    
+});
+
 module.exports = router; 
