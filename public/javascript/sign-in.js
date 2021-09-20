@@ -20,7 +20,7 @@ const signinFormHandler = async function (event) {
         // Check if response went through
         if (response.ok) {
             console.log('Signed in!');
-            window.location.replace('/');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }

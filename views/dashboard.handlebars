@@ -1,10 +1,33 @@
-<article>
-    <div>
-        <h2>Hello, {{posts.user.username}} !</h2>
+<article class="container">
+    <div class="row justify-content-center mb-2">
+        <h2 class="col-4 text-center bg-coffee p-2 text-cream round-border floating-shadow">Hello, {{username}} !</h2>
     </div>
-    <div>Account Settings</div>
-    <section>
-        <h3>Your Posts:</h3>
+    <section class="row">
+        <div class="dropdown col-2 offset-5 ">
+            <button class="btn btn-coffee dropdown-toggle text-center p-2 text-cream w-100" type="button" name="account-settings-btn" data-bs-toggle="dropdown">Account Settings</button>
+            {{!--  floating-shadow --}}
+            <div class="dropdown-menu">
+                <form class="px-3 py-4">
+                    <div class="form-group">
+                        <label for="new-username-input">New Username:</label>
+                        <input type="text" class="form-control" name="new-username-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="current-password-input">Current Password:</label>
+                        <input type="password" class="form-control" name="current-password-input">
+                        <label for="new-password-input">New Password:</label>
+                        <input type="password" class="form-control" name="new-password-input">
+                    </div>
+                    <button type="button" name="save-settings-btn" class="btn btn-coffee">Save Settings</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="row justify-content-center my-4">
+        <h3 class="col-3 text-center bg-coffee text-cream round-border floating-shadow">Your Posts:</h3>
+    </section>
+
+    <section>    
         <ul class="list-group mx-auto w-50">
             {{#each posts as |post|}}
             <li class="list-group-item bg-coffee text-cream mb-5 post-item">
@@ -14,3 +37,4 @@
         </ul>
     </section>
 </article>
+

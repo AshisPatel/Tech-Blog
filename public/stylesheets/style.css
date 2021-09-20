@@ -10839,6 +10839,7 @@ nav {
 
 .floating-shadow {
   box-shadow: 0.5rem 0.5rem 0.7rem black;
+  background-color: rgba(169, 121, 83, 0.7);
 }
 
 /*# sourceMappingURL=style.css.map */
