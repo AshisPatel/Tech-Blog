@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
             'post_text',
             'created_at'
         ],
+        order: [['created_at', 'DESC']],
         include: [
             {
                 model: User,

@@ -3,7 +3,7 @@ module.exports = {
     format_post_text: text => {
         const textArray = text.split('');
         if(textArray.length > 150) {
-            return `${textArray.split(0,150).toString()} ...`;
+            return `${textArray.slice(0,150).join('')}...`;
         }
         return text; 
     }
