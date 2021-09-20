@@ -1,12 +1,15 @@
 
-
+$coffee-color: #A97953;
+$coffee-color-dark: darken($coffee-color, 10%);
+$floating-box-shadow: 0.5rem 0.5rem 0.7rem black;
 $theme-colors: (
     "primary": #652817
 );
 
 $custom-colors: (
+    "mocha": #47362C,
     "cream": #FEFFE7,
-    "coffee": #A97953,
+    "coffee": $coffee-color,
     "butter": #FED2A1
 );
 
@@ -16,6 +19,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+
+
 
 *{
     font-family: 'Merienda', cursive;
@@ -31,5 +36,18 @@ nav {
 }
 
 .post-item {
-    box-shadow: 0.5rem 0.5rem 0.7rem black; 
+    box-shadow: $floating-box-shadow; 
+}
+
+.post-text{
+    background-color: $coffee-color-dark;
+    border-radius: 0.4rem; 
+}
+
+.round-border{
+    border-radius: 0.4rem; 
+}
+
+.floating-shadow{
+    box-shadow: $floating-box-shadow; 
 }
