@@ -100,4 +100,32 @@ router.delete('/:id', (req,res) => {
     });
 });
 
+router.post('/login', (req, res) => {
+
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+    .then(async dbUserData => {
+        if(!dbUserData) {
+            res.status(400).json({ message: 'No user with that username!' });
+            return; 
+        }
+        
+        const validPassword = await dbUserData.checkPassword(req.body.password);
+        if(!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return; 
+        }
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id; 
+            req.session.username = dbUserData.username; 
+            req.session.signedIn = true; 
+
+            res.json({ user: dbUserData, message: 'You are now signed in!' });
+        });
+    });
+});
+
 module.exports = router; 
