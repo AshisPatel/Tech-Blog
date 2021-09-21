@@ -67,6 +67,30 @@ router.post('/', (req,res) => {
     });
 });
 
+// router.put('/updateUN', (req,res) => {
+//     User.update({username: req.body.username}, {
+//         individualHooks: true,
+//         where: {
+//             id: req.session.user_id
+//         }
+//     })
+//     .then(dbUserData => {
+//         if(!dbUserData[0]) {
+//             res.status(404).json({ message: 'No user with this id found.' });
+//             return;
+//         }
+//         req.session.save(() => {
+//             req.session.username = dbUserData.username; 
+
+//             res.json(dbUserData);
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err); 
+//     });
+// });
+
 router.put('/:id', (req,res) => {
     User.update(req.body, {
         individualHooks: true,
@@ -87,6 +111,8 @@ router.put('/:id', (req,res) => {
     });
 });
 
+
+
 router.delete('/:id', (req,res) => {
     User.destroy({
         where: {
@@ -105,6 +131,8 @@ router.delete('/:id', (req,res) => {
         res.status(500).json(err);  
     });
 });
+// route to update username 
+
 
 router.post('/signin', (req, res) => {
 
