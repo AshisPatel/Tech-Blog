@@ -28,4 +28,22 @@ router.get('/', (req,res) => {
     })
 });
 
+router.get('/edit/:id', (req,res) =>{
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'post_text', 'created_at']
+    })
+    .then(dbPostData => {
+        if(!dbPostData) {
+            res.status(404).end();
+            return; 
+        }
+        const post = dbPostData.get({ plain: true });
+        res.render('edit-post', { post,
+        signedIn: true });
+    })
+})
+
 module.exports = router; 

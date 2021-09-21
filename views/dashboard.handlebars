@@ -1,42 +1,57 @@
 <article class="container">
     <div class="row justify-content-center mb-2">
-        <h2 class="col-4 text-center bg-coffee p-2 text-cream round-border floating-shadow">Hello, <span class="username">{{username}}</span> !</h2>
+        <h2 class="col-4 text-center bg-coffee p-2 text-cream round-border floating-shadow">Hello, <span
+                class="username">{{username}}</span> !</h2>
+    </div>
+
+    <div>
+        <form id="new-post-form">
+            <h3>Create a new post</h3>
+            <label for="title-input">Title:</label>
+            <input type="text" name="title-input" />
+            <label for="text-input">Content:</label>
+            <input type="textarea" name="content-input" />
+            <button type="submit" class="btn btn-coffee">Submit Post</button>
+        </form>
+        
+        
     </div>
     {{!-- <section class="row">
         </div class="dropdown col-2 offset-5 ">
-            <button class="btn btn-coffee dropdown-toggle text-center p-2 text-cream w-100" type="button" name="account-settings-btn" data-bs-toggle="dropdown">Account Settings</button>
-            {{!--  floating-shadow --}}
-            <div class="dropdown-menu">
-                <form class="px-3 py-4">
-                    <div class="form-group">
-                        <label for="new-username-input">New Username:</label>
-                        <input type="text" class="form-control" name="new-username-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="current-password-input">Current Password:</label>
-                        <input type="password" class="form-control" name="current-password-input">
-                        <label for="new-password-input">New Password:</label>
-                        <input type="password" class="form-control" name="new-password-input">
-                    </div>
-                    <button type="button" name="save-settings-btn" class="btn btn-coffee">Save Settings</button>
-                </form>
-            </div>
+        <button class="btn btn-coffee dropdown-toggle text-center p-2 text-cream w-100" type="button"
+            name="account-settings-btn" data-bs-toggle="dropdown">Account Settings</button>
+        {{!-- floating-shadow --}}
+        <div class="dropdown-menu">
+            <form class="px-3 py-4">
+                <div class="form-group">
+                    <label for="new-username-input">New Username:</label>
+                    <input type="text" class="form-control" name="new-username-input">
+                </div>
+                <div class="form-group">
+                    <label for="current-password-input">Current Password:</label>
+                    <input type="password" class="form-control" name="current-password-input">
+                    <label for="new-password-input">New Password:</label>
+                    <input type="password" class="form-control" name="new-password-input">
+                </div>
+                <button type="button" name="save-settings-btn" class="btn btn-coffee">Save Settings</button>
+            </form>
+        </div>
         </div>
     </section> --}}
 
-           <form class="px-3 py-4">
-                    <div class="form-group">
-                        <label for="new-username-input">New Username:</label>
-                        <input type="text" class="form-control" name="username-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="current-password-input">Current Password:</label>
-                        <input type="password" class="form-control" name="current-password-input">
-                        <label for="new-password-input">New Password:</label>
-                        <input type="password" class="form-control" name="new-password-input">
-                    </div>
-                   <button type="button" name="save-btn" class="btn btn-coffee">Save Settings</button>
-                </form>
+    <form class="px-3 py-4">
+        <div class="form-group">
+            <label for="new-username-input">New Username:</label>
+            <input type="text" class="form-control" name="username-input">
+        </div>
+        <div class="form-group">
+            <label for="current-password-input">Current Password:</label>
+            <input type="password" class="form-control" name="current-password-input">
+            <label for="new-password-input">New Password:</label>
+            <input type="password" class="form-control" name="new-password-input">
+        </div>
+        <button type="button" name="save-btn" class="btn btn-coffee">Save Settings</button>
+    </form>
 
     <section class="row justify-content-center my-4">
         <h3 class="col-3 text-center bg-coffee text-cream round-border floating-shadow">Your Posts:</h3>
@@ -44,17 +59,17 @@
 
 
 
-    <section>    
+    <section>
         <ul class="list-group mx-auto w-50">
             {{#each posts as |post|}}
             <li class="list-group-item bg-coffee text-cream mb-5 post-item">
                 {{> post-info post }}
+                <div><a href="dashboard/edit/{{post.id}}">Edit Post</a></div>
             </li>
             {{/each}}
         </ul>
     </section>
 </article>
 
-
+<script src="/javascript/create-post.js"></script>
 <script src="/javascript/editUsername.js"></script>
-
