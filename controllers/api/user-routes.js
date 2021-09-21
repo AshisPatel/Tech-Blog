@@ -12,6 +12,41 @@ router.get('/', (req,res) => {
     });
 });
 
+router.get('/:username', (req,res) => {
+    User.findOne(
+        {
+            attributes: { exclude: ['password'] },
+            where: {
+                username: req.params.username
+            }, 
+            include: [
+                {
+                    model: Post, 
+                    attributes: ['id', 'title', 'post_text']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text'],
+                    include: {
+                        model: Post, 
+                        attributes: ['title']
+                    }
+                }
+            ]
+        })
+        .then(dbUserData => {
+            if(!dbUserData) {
+                res.status(404).json({ message: 'No user with that id found.' });
+                return; 
+            }
+            res.status(200).json(dbUserData); 
+        })
+        .catch(err =>{
+            console.log(err);
+            res.status(500).json(err); 
+        });
+});
+
 router.get('/:id', (req,res) => {
     User.findOne(
         {
@@ -66,30 +101,6 @@ router.post('/', (req,res) => {
         res.status(500).json(err); 
     });
 });
-
-// router.put('/updateUN', (req,res) => {
-//     User.update({username: req.body.username}, {
-//         individualHooks: true,
-//         where: {
-//             id: req.session.user_id
-//         }
-//     })
-//     .then(dbUserData => {
-//         if(!dbUserData[0]) {
-//             res.status(404).json({ message: 'No user with this id found.' });
-//             return;
-//         }
-//         req.session.save(() => {
-//             req.session.username = dbUserData.username; 
-
-//             res.json(dbUserData);
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err); 
-//     });
-// });
 
 router.put('/:id', (req,res) => {
     User.update(req.body, {
