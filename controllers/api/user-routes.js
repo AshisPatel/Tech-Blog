@@ -114,7 +114,13 @@ router.put('/:id', (req,res) => {
             res.status(404).json({ message: 'No user with this id found.' });
             return;
         }
-        res.status(200).json(dbUserData);
+        // req.session.save(() => {
+        //     req.session.user_id = dbUserData.id; 
+        //     req.session.username = dbUserData.username; 
+        //     req.session.signedIn = true; 
+
+        //     res.status(200).json(dbUserData);
+        // });
     })
     .catch(err => {
         console.log(err);

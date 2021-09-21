@@ -28,7 +28,7 @@ const updateUsername = async function (id) {
     });
     if (response.ok) {
         console.log('Username changed!');
-        document.location.reload();
+        document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
     }
