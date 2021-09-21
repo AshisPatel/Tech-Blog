@@ -1,9 +1,14 @@
 <article>
     <h2>{{post.title}}</h2>
-    <h3>Created by {{post.user.username}} on {{post.created_at}}</h3>
+    <h3>Created by {{post.user.username}} on{{post.created_at}}</h3>
     <div>
         <p>
             {{post.post_text}}
         </p>
     </div>
 </article>
+
+<section>
+    <h3>Comments</h3>
+    {{comment-info post.comments}}
+</section>

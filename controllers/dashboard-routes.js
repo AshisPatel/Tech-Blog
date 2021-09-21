@@ -19,7 +19,8 @@ router.get('/', (req,res) => {
         res.render('dashboard', {
             posts,
             signedIn: true,
-            username: req.session.username
+            username: req.session.username,
+            dashboard: true
         });
     })
     .catch(err => {
