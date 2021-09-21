@@ -40,6 +40,31 @@ router.get('/signup', (req,res) => {
     res.render('sign-up');
 });
 
+router.get('/post/:id', (req,res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: ['id', 'title', 'post_text', 'created_at'],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+    .then(dbPostData => {
+        if(!dbPostData) {
+            res.status(404).json({ message: 'Post does not exist'});
+        }
+        const post = dbPostData.get({plain:true});
+        res.render('single-post',{
+            post,
+            signedIn: req.session.signedIn 
+        });
+    })
+})
+
 
 
 module.exports = router;

@@ -33,7 +33,6 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         },
         attributes: ['id', 'title', 'post_text', 'created_at'],
-        order: [['created_at', 'DESC']],
         include: [
             {
                 model: Comment,
