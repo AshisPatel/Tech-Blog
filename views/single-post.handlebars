@@ -9,6 +9,16 @@
 </article>
 
 <section>
-    <h3>Comments</h3>
-    {{comment-info post.comments}}
+    <form id="new-comment-form">
+        <h4>Add New Comment:</h4>
+        <input type="textarea" name="comment-textarea" aria-label="comment-textarea" placeholder="Type comment here..." />
+        <button type="submit" name="add-btn" class="btn btn-coffee">Add Comment</button>
+    </form>
 </section>
+
+<section>
+    <h3>Comments</h3>
+    {{>comment-info post.comments}}
+</section>
+
+<script src="/javascript/add-comment.js"></script>
