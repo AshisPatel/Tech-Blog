@@ -2,7 +2,7 @@
     {{#each this as |comment|}}
     <li>
         <p>{{comment.comment_text}}</p>
-        <p>By {{comment.user.username}} at {{comment.created_at}}</p>
+        <p>By {{comment.user.username}} at {{format_date comment.created_at}}</p>
     </li>
     {{/each}}
 </ul>

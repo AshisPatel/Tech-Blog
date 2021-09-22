@@ -6,6 +6,10 @@ module.exports = {
             return `${textArray.slice(0,150).join('')}...`;
         }
         return text; 
+    },
+
+    format_date: date => {
+        return `${new Date(date).getMonth()+1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
     }
 }
 
