@@ -10929,7 +10929,7 @@ nav {
   box-shadow: 0.045rem 0.045rem 1.8px rgba(101, 40, 23, 0.15), 0.234rem 0.234rem 5px rgba(101, 40, 23, 0.25), 0.56rem 0.56rem 12.1px rgba(101, 40, 23, 0.4), 1.875rem 1.875rem 40px rgba(101, 40, 23, 0.3);
 }
 
-.post-text {
+.post-text, .comment-text {
   background-color: rgba(254, 210, 161, 0.3);
 }
 

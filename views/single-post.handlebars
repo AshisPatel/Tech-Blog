@@ -15,14 +15,14 @@
     </div>
 </article> --}}
 <section class="container">
-    <article class="bg-chocolate round-border floating-shadow text-cream p-3 mb-5 row">
-        <div class="col-12">
+    <article class="bg-chocolate round-border floating-shadow text-cream p-3 mb-5 w-100">
+        <div class="w-100">
             <div>
                 <h2 class="text-center fw-bold">
                     <a href="/post/{{post.id}}">{{post.title}}</a>
                 </h2>
             </div>
-            <div class=" text-butter text-center">
+            <div class=" text-butter text-center mb-2">
                 Made by <span class="fw-bold">{{post.user.username}}</span> on {{format_date post.created_at}}
             </div>
             <div class="post-text py-3 px-4 round-border">
@@ -32,12 +32,12 @@
 
     </article>
 
-    <section class="row justify-content-center">
+    <section class="w-100 justify-content-center">
         <form id="new-comment-form" class="col-12 bg-chocolate p-2 text-cream round-border floating-shadow">
-            <h4>Add New Comment:</h4>
+            <h4 class="mt-2 ps-2">Add New Comment:</h4>
             <div>
                 <textarea name="comment-textarea" placeholder="Type comment here..."
-                    class="class w-100 text-cream round-border p-2"></textarea>
+                    class="w-100 text-cream round-border p-2"></textarea>
             </div>
             <div>
                 <button type="submit" name="add-btn"
@@ -47,8 +47,12 @@
         </form>
     </section>
 
-    <section>
-        <h3>Comments</h3>
+    <div class="mt-5">
+          <h3 class="w-100 text-center bg-chocolate text-cream round-border floating-shadow">Comments</h3>
+    </div>
+  
+
+    <section class="mt-4">
         {{>comment-info post.comments}}
     </section>
 

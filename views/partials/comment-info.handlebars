@@ -1,8 +1,8 @@
-<ul>
+<ul class="list-group w-100">
     {{#each this as |comment|}}
-    <li>
-        <p>{{comment.comment_text}}</p>
-        <p>By {{comment.user.username}} at {{format_date comment.created_at}}</p>
+    <li class="list-group-item bg-chocolate text-cream mb-5 round-border floating-shadow">
+        <p class="py-3 px-4 round-border comment-text mt-2">{{comment.comment_text}}</p>
+        <p class="d-flex justify-content-end text-butter">By {{comment.user.username}} on {{format_date comment.created_at}}</p>
     </li>
     {{/each}}
 </ul>

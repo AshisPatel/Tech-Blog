@@ -47,7 +47,7 @@ nav {
     box-shadow: $floating-box-shadow; 
 }
 
-.post-text{
+.post-text, .comment-text{
     background-color: transparentize($butter, 0.7);
 }
 
@@ -125,5 +125,6 @@ nav {
     }
 
 }
+
 
 
