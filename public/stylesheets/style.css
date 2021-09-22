@@ -10826,16 +10826,16 @@ nav {
 
 .post-item {
   box-shadow: 0.045rem 0.045rem 1.8px rgba(169, 121, 83, 0.15), 0.234rem 0.234rem 5px rgba(169, 121, 83, 0.25), 0.56rem 0.56rem 12.1px rgba(169, 121, 83, 0.4), 1.875rem 1.875rem 40px rgba(169, 121, 83, 0.3);
-  border-radius: 2.5rem !important;
+  border-radius: 1.5rem !important;
 }
 
 .post-text {
   background-color: #876142;
-  border-radius: 2.5rem !important;
+  border-radius: 1.5rem !important;
 }
 
 .round-border {
-  border-radius: 2.5rem !important;
+  border-radius: 1.5rem !important;
 }
 
 .floating-shadow {
