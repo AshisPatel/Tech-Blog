@@ -19,10 +19,12 @@ const PORT = process.env.PORT || 9001;
 const sess = {
     secret: process.env.SECRET,
     cookie: {
-        // Timeout is 5 minutes?
-        maxAge: 5*60*1000
+        // maxAge sets the timeout after a duration of activity (1 hour)
+        maxAge: 1000*60*60
     },
     resave: false,
+    // rolling causes the session duration to be continued on each request...
+    rolling: true,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
