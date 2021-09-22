@@ -20,7 +20,7 @@ const signupFormHandler = async function (event) {
         // Check if response went through
         if (response.ok) {
             console.log('User created!');
-            //window.location.replace('/');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }

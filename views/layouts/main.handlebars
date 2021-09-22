@@ -12,7 +12,7 @@
 <body class="bg-butter">
     {{!-- Main page will always display a navbar at the top and posts in the middle --}}
     <header>
-        <nav class="d-flex flex-row justify-content-between p-5 mb-5 bg-coffee">
+        <nav class="d-flex flex-row justify-content-between p-5 mb-5 bg-chocolate">
             <div class="d-flex flex-row p-0 mr-2">
                 <h1 class="text-cream">
                     {{!-- homepage text is a link that links back to homepage --}}
@@ -22,11 +22,11 @@
             {{!-- Navbar buttons --}}
             <div class="d-flex flex-row">
                 {{#if signedIn}}
-                <button type="button" name="dashboard-btn" class="btn btn-cream text-coffee me-3">Dashboard</button>
-                <button type="button" name="sign-out-btn" class="btn btn-cream text-coffe me-3">Sign-out</button>
+                <button type="button" name="dashboard-btn" class="btn btn-cream text-chocolate me-3">Dashboard</button>
+                <button type="button" name="sign-out-btn" class="btn btn-cream text-chocolate me-3">Sign-out</button>
                 {{else}}
-                <button type="button" name="sign-in-btn" class="btn btn-cream text-coffee me-3">Sign-in</button>
-                <button type="button" name="sign-up-btn" class="btn btn-cream text-coffee me-3">Sign-up</button>
+                <button type="button" name="sign-in-btn" class="btn btn-cream text-chocolate me-3">Sign-in</button>
+                <button type="button" name="sign-up-btn" class="btn btn-cream text-chocolate me-3">Sign-up</button>
                 {{/if}}
             </div>
         </nav>

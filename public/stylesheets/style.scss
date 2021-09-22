@@ -1,20 +1,23 @@
 
 $coffee-color: #A97953;
+$butter: #FED2A1;
+$cream: #FEFFE7;
 $coffee-color-dark: darken($coffee-color, 10%);
 $floating-box-shadow:
-  0.045rem 0.045rem 1.8px rgba($coffee-color, 0.15),
-  0.234rem .234rem 5px rgba($coffee-color, 0.25),
-  0.56rem 0.56rem 12.1px rgba($coffee-color, 0.4),
-  1.875rem 1.875rem 40px rgba($coffee-color, 0.3);
+  0.045rem 0.045rem 1.8px rgba(#652817, 0.15),
+  0.234rem .234rem 5px rgba(#652817, 0.25),
+  0.56rem 0.56rem 12.1px rgba(#652817, 0.4),
+  1.875rem 1.875rem 40px rgba(#652817, 0.3);
 $theme-colors: (
     "primary": #652817
 );
 
 $custom-colors: (
     "mocha": #47362C,
-    "cream": #FEFFE7,
+    "cream": $cream,
     "coffee": $coffee-color,
-    "butter": #FED2A1
+    "chocolate":#652817,
+    "butter": $butter
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
@@ -41,12 +44,10 @@ nav {
 
 .post-item {
     box-shadow: $floating-box-shadow; 
-    border-radius: 1.5rem !important; 
 }
 
 .post-text{
-    background-color: $coffee-color-dark;
-    border-radius: 1.5rem !important; 
+    background-color: transparentize($butter, 0.7);
 }
 
 .round-border{
@@ -61,5 +62,49 @@ nav {
     & textarea{
         height: 20rem;
         width: 20rem; 
+        background-color: transparentize($butter, 0.7);
+        border: 0.2rem solid $butter;
+
+        &:focus{
+            outline:none;
+            border-color: $cream;
+        }
+
+        &::placeholder{
+            color: $cream;
+        }
     }
 }
+
+#new-post-form{
+    & textarea{
+        height: 15rem; 
+        border-radius: 1.5rem;
+        background-color: transparentize($butter, 0.7);
+        border: 0.2rem solid $butter;
+
+        &:focus{
+            outline: none; 
+            border-color: $cream; 
+        }
+
+        &::placeholder {
+            color: $cream;
+        }
+    }
+
+    & input {
+        background-color: transparentize($butter, 0.7);
+        border: 0.2rem solid $butter;
+        &:focus {
+            outline:none;
+            border-color: $cream;  
+        }
+        &::placeholder {
+            color: $cream;
+        }
+    }
+}
+
+
+
