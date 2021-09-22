@@ -9,20 +9,27 @@ const savePostHandler = async function (event) {
     const title = document.querySelector('[name="post-title"]').value.trim();
     const postText = document.querySelector('[name="post-text"]').value.trim();
 
-    const response = await fetch(`/api/posts/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-            title: title,
-            post_text: postText
-        }),
-        headers: { 'Content-type': 'application/json' }
-    });
+    if(title && postText) {
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                title: title,
+                post_text: postText
+            }),
+            headers: { 'Content-type': 'application/json' }
+        });
+    
+        if (response.ok) {
+            alert('Post had been succesfully saved!');
+            document.location.replace('/dashboard');
+        } else {
+            alert(response.statusText);
+        }
 
-    if (response.ok) {
-        alert('Post had been succesfully saved!');
     } else {
-        alert(response.statusText);
+        alert('Your post must have both a title and content to be saved! To undo changes, return to the dashboard.');
     }
+ 
 }
 
 const deletePostHandler = async function (event) {
@@ -39,6 +46,6 @@ const deletePostHandler = async function (event) {
     }
 }
 
-document.querySelector('[name="save-btn"]').addEventListener('click', savePostHandler);
+document.querySelector('[name="save-btn"]').addEventListener('submit', savePostHandler);
 
 document.querySelector('[name="delete-btn"]').addEventListener('click', deletePostHandler);
