@@ -56,3 +56,10 @@ nav {
 .floating-shadow{
     box-shadow: $floating-box-shadow; 
 }
+
+#new-comment-form{
+    & textarea{
+        height: 20rem;
+        width: 20rem; 
+    }
+}
