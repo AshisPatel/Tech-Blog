@@ -1,7 +1,11 @@
 
 $coffee-color: #A97953;
 $coffee-color-dark: darken($coffee-color, 10%);
-$floating-box-shadow: 0.5rem 0.5rem 0.7rem black;
+$floating-box-shadow:
+  0.045rem 0.045rem 1.8px rgba($coffee-color, 0.15),
+  0.234rem .234rem 5px rgba($coffee-color, 0.25),
+  0.56rem 0.56rem 12.1px rgba($coffee-color, 0.4),
+  1.875rem 1.875rem 40px rgba($coffee-color, 0.3);
 $theme-colors: (
     "primary": #652817
 );
@@ -37,15 +41,16 @@ nav {
 
 .post-item {
     box-shadow: $floating-box-shadow; 
+    border-radius: 2.5rem !important; 
 }
 
 .post-text{
     background-color: $coffee-color-dark;
-    border-radius: 0.4rem; 
+    border-radius: 2.5rem !important; 
 }
 
 .round-border{
-    border-radius: 0.4rem; 
+    border-radius: 2.5rem !important; 
 }
 
 .floating-shadow{
