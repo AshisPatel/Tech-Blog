@@ -3,25 +3,26 @@ $coffee-color: #A97953;
 $butter: #FED2A1;
 $cream: #FEFFE7;
 $coffee-color-dark: darken($coffee-color, 10%);
+$neon-orange: #FF5F1F;
 $floating-box-shadow:
   0.045rem 0.045rem 1.8px rgba(#652817, 0.15),
   0.234rem .234rem 5px rgba(#652817, 0.25),
   0.56rem 0.56rem 12.1px rgba(#652817, 0.4),
   1.875rem 1.875rem 40px rgba(#652817, 0.3);
 $theme-colors: (
-    "primary": #652817
+
 );
 
-$custom-colors: (
+  $custom-colors: (
     "mocha": #47362C,
     "cream": $cream,
     "coffee": $coffee-color,
     "chocolate":#652817,
-    "butter": $butter
+    "butter": $butter,
+    "warning": $neon-orange
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
-
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
@@ -76,7 +77,7 @@ nav {
     }
 }
 
-#new-post-form{
+#new-post-form, #edit-post-form{
     & textarea{
         height: 15rem; 
         border-radius: 1.5rem;
