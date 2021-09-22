@@ -1,24 +1,63 @@
-<article>
-    <h2>{{post.title}}</h2>
-    <h3>Created by {{post.user.username}} on{{post.created_at}}</h3>
+{{!-- <article class="container bg-chocolate floating-shadow round-border">
+
+    <div class="d-flex justify-content-center text-cream">
+        <h2>{{post.title}}</h2>
+
+    </div>
+    <div class="d-flex justify-content-center text-butter">
+        <h6>Created by <span class="fw-bold">{{post.user.username}}</span> on {{format_date post.created_at}}</h6>
+    </div>
+
     <div>
         <p>
             {{post.post_text}}
         </p>
     </div>
-</article>
+</article> --}}
+<section class="container">
+    <article class="bg-chocolate round-border floating-shadow text-cream p-3 mb-5 row">
+        <div class="col-12">
+            <div>
+                <h2 class="text-center fw-bold">
+                    <a href="/post/{{post.id}}">{{post.title}}</a>
+                </h2>
+            </div>
+            <div class=" text-butter text-center">
+                Made by <span class="fw-bold">{{post.user.username}}</span> on {{format_date post.created_at}}
+            </div>
+            <div class="post-text py-3 px-4 round-border">
+                {{post.post_text}}
+            </div>
+        </div>
 
-<section>
-    <form id="new-comment-form">
-        <h4>Add New Comment:</h4>
-        <textarea name="comment-textarea" placeholder="Type comment here..."></textarea>
-        <button type="submit" name="add-btn" class="btn btn-coffee">Add Comment</button>
-    </form>
+    </article>
+
+    <section class="row justify-content-center">
+        <form id="new-comment-form" class="col-12 bg-chocolate p-2 text-cream round-border floating-shadow">
+            <h4>Add New Comment:</h4>
+            <div>
+                <textarea name="comment-textarea" placeholder="Type comment here..."
+                    class="class w-100 text-cream round-border p-2"></textarea>
+            </div>
+            <div>
+                <button type="submit" name="add-btn"
+                    class="btn btn-cream text-chocolate w-100 p-2 mx-auto my-3 round-border">Add Comment</button>
+            </div>
+
+        </form>
+    </section>
+
+    <section>
+        <h3>Comments</h3>
+        {{>comment-info post.comments}}
+    </section>
+
 </section>
 
-<section>
-    <h3>Comments</h3>
-    {{>comment-info post.comments}}
-</section>
+
+
+
+
+
 
 <script src="/javascript/add-comment.js"></script>

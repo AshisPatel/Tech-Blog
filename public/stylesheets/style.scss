@@ -107,5 +107,23 @@ nav {
     }
 }
 
+#new-comment-form {
+    & textarea{
+        height: 5rem; 
+        border-radius: 1.5rem;
+        background-color: transparentize($butter, 0.7);
+        border: 0.2rem solid $butter;
+
+        &:focus{
+            outline: none; 
+            border-color: $cream; 
+        }
+
+        &::placeholder {
+            color: $cream;
+        }
+    }
+
+}
 
 

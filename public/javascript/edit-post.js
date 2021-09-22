@@ -7,8 +7,7 @@ const savePostHandler = async function (event) {
     event.preventDefault();
     
     const title = document.querySelector('[name="post-title"]').value.trim();
-    const postText = document.querySelector('[name="post-text"]').value.trim();
-
+    const postText = document.querySelector('[name="post-text"]').value;    
     if(title && postText) {
         const response = await fetch(`/api/posts/${id}`, {
             method: 'PUT',
@@ -46,6 +45,6 @@ const deletePostHandler = async function (event) {
     }
 }
 
-document.querySelector('[name="save-btn"]').addEventListener('submit', savePostHandler);
+document.querySelector('[name="save-btn"]').addEventListener('click', savePostHandler);
 
 document.querySelector('[name="delete-btn"]').addEventListener('click', deletePostHandler);
