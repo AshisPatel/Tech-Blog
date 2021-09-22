@@ -9,7 +9,7 @@ const signupFormHandler = async function (event) {
     if (username && password) {
         // Call the post request in the api for user-routes to create a new user
         const response = await fetch('/api/users', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
                 username,
                 password
@@ -20,7 +20,7 @@ const signupFormHandler = async function (event) {
         // Check if response went through
         if (response.ok) {
             console.log('User created!');
-            window.location.replace('/');
+            //window.location.replace('/');
         } else {
             alert(response.statusText);
         }

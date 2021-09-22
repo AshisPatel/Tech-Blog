@@ -83,7 +83,7 @@ router.get('/:id', (req,res) => {
         });
 });
 
-router.post('/', withAuth, (req,res) => {
+router.post('/', (req,res) => {
     User.create({
         username: req.body.username,
         password: req.body.password
@@ -96,6 +96,7 @@ router.post('/', withAuth, (req,res) => {
 
             res.json(dbUserData);
         });
+        
     })
     .catch(err => {
         console.log(err);
@@ -103,31 +104,31 @@ router.post('/', withAuth, (req,res) => {
     });
 });
 
-router.put('/:id', withAuth, (req,res) => {
-    User.update(req.body, {
-        individualHooks: true,
-        where: {
-            id: req.params.id
-        }
-    })
-    .then(dbUserData => {
-        if(!dbUserData[0]) {
-            res.status(404).json({ message: 'No user with this id found.' });
-            return;
-        }
-        // req.session.save(() => {
-        //     req.session.user_id = dbUserData.id; 
-        //     req.session.username = dbUserData.username; 
-        //     req.session.signedIn = true; 
+// router.put('/:id', withAuth, (req,res) => {
+//     User.update(req.body, {
+//         individualHooks: true,
+//         where: {
+//             id: req.params.id
+//         }
+//     })
+//     .then(dbUserData => {
+//         if(!dbUserData[0]) {
+//             res.status(404).json({ message: 'No user with this id found.' });
+//             return;
+//         }
+//         // req.session.save(() => {
+//         //     req.session.user_id = dbUserData.id; 
+//         //     req.session.username = dbUserData.username; 
+//         //     req.session.signedIn = true; 
 
-        //     res.status(200).json(dbUserData);
-        // });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err); 
-    });
-});
+//         //     res.status(200).json(dbUserData);
+//         // });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err); 
+//     });
+// });
 
 
 
