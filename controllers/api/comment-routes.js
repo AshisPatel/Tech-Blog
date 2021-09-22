@@ -49,7 +49,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Comment.create({
         comment_text: req.body.comment_text,
         post_id: req.body.post_id,
@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Comment.update(req.body, {
         where: {
             id: req.params.id
@@ -84,7 +84,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id
