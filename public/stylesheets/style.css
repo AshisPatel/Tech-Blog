@@ -10923,11 +10923,11 @@ a {
 }
 
 a:hover {
-  color: #FF5F1F;
+  color: #FF5F1F !important;
 }
 
 nav {
-  box-shadow: 0 0.2rem 1.5rem black;
+  box-shadow: 0 0.2rem 20px #652817;
 }
 
 .post-item {
@@ -10960,28 +10960,28 @@ nav {
   color: #FEFFE7;
 }
 
-#new-post-form textarea, #edit-post-form textarea {
+#new-post-form textarea, #edit-post-form textarea, #sign-up-form textarea, #sign-in-form textarea {
   height: 15rem;
   border-radius: 1.5rem;
   background-color: rgba(254, 210, 161, 0.3);
   border: 0.2rem solid #FED2A1;
 }
-#new-post-form textarea:focus, #edit-post-form textarea:focus {
+#new-post-form textarea:focus, #edit-post-form textarea:focus, #sign-up-form textarea:focus, #sign-in-form textarea:focus {
   outline: none;
   border-color: #FEFFE7;
 }
-#new-post-form textarea::placeholder, #edit-post-form textarea::placeholder {
+#new-post-form textarea::placeholder, #edit-post-form textarea::placeholder, #sign-up-form textarea::placeholder, #sign-in-form textarea::placeholder {
   color: #FEFFE7;
 }
-#new-post-form input, #edit-post-form input {
+#new-post-form input, #edit-post-form input, #sign-up-form input, #sign-in-form input {
   background-color: rgba(254, 210, 161, 0.3);
   border: 0.2rem solid #FED2A1;
 }
-#new-post-form input:focus, #edit-post-form input:focus {
+#new-post-form input:focus, #edit-post-form input:focus, #sign-up-form input:focus, #sign-in-form input:focus {
   outline: none;
   border-color: #FEFFE7;
 }
-#new-post-form input::placeholder, #edit-post-form input::placeholder {
+#new-post-form input::placeholder, #edit-post-form input::placeholder, #sign-up-form input::placeholder, #sign-in-form input::placeholder {
   color: #FEFFE7;
 }
 
@@ -11002,26 +11002,24 @@ nav {
 .gradient-btn {
   outline: none;
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   color: #652817;
-  background-size: 1000% 100%;
+  background-size: 200% auto;
   background-position: 0 0;
   background-size: 300% 100%;
-  background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+  background-image: linear-gradient(to right, #FEFFE7, #FF5F1F);
+  transition: background-position 0.25s linear;
 }
 .gradient-btn:hover {
-  animation: gradient 10s linear infinite;
+  background-position: 100% 0;
 }
 
 @keyframes gradient {
   0% {
     background-position: 0 0;
   }
-  50% {
-    background-position: 100% 0;
-  }
   100% {
-    background-position: 0% 0;
+    background-position: 100% 0;
   }
 }
 

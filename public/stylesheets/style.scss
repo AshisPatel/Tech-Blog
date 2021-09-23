@@ -42,11 +42,11 @@ a {
 }
 
 a:hover {
-    color: $neon-orange ;
+    color: $neon-orange !important;
 }
 
 nav {
-    box-shadow: 0 0.2rem 1.5rem black; 
+    box-shadow: 0 0.2rem 20px $chocolate; 
 }
 
 .post-item {
@@ -83,7 +83,7 @@ nav {
     }
 }
 
-#new-post-form, #edit-post-form{
+#new-post-form, #edit-post-form, #sign-up-form, #sign-in-form{
     & textarea{
         height: 15rem; 
         border-radius: 1.5rem;
@@ -135,14 +135,16 @@ nav {
 .gradient-btn {
     outline: none; 
     border: none; 
-    border-radius: 1.5rem; 
+    border-radius: 0.5rem; 
     color: $chocolate; 
-    background-size: 1000% 100%; 
+    background-size: 200% auto; 
     background-position: 0 0; 
     background-size: 300% 100%; 
-    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    background-image: linear-gradient(to right, $cream, $neon-orange);
+    transition: background-position 0.25s linear; 
     &:hover {
-        animation: gradient 10s linear infinite; 
+        // animation: gradient 0.5s linear forwards; 
+        background-position: 100% 0;
     }
 }
 
@@ -150,11 +152,8 @@ nav {
     0% {
         background-position: 0 0;
     }
-    50% {
-        background-position: 100% 0;
-    }
     100% {
-        background-position: 0% 0;
+        background-position: 100% 0;
     }
 }
 
