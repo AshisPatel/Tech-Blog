@@ -104,31 +104,33 @@ router.post('/', (req,res) => {
     });
 });
 
-// router.put('/:id', withAuth, (req,res) => {
-//     User.update(req.body, {
-//         individualHooks: true,
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//     .then(dbUserData => {
-//         if(!dbUserData[0]) {
-//             res.status(404).json({ message: 'No user with this id found.' });
-//             return;
-//         }
-//         // req.session.save(() => {
-//         //     req.session.user_id = dbUserData.id; 
-//         //     req.session.username = dbUserData.username; 
-//         //     req.session.signedIn = true; 
+// route to update username 
 
-//         //     res.status(200).json(dbUserData);
-//         // });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err); 
-//     });
-// });
+router.put('/:id', withAuth, (req,res) => {
+    User.update(req.body, {
+        individualHooks: true,
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbUserData => {
+        if(!dbUserData[0]) {
+            res.status(404).json({ message: 'No user with this id found.' });
+            return;
+        }
+        // req.session.save(() => {
+        //     req.session.user_id = dbUserData.id; 
+        //     req.session.username = dbUserData.username; 
+        //     req.session.signedIn = true; 
+
+        //     res.status(200).json(dbUserData);
+        // });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err); 
+    });
+});
 
 
 
@@ -150,7 +152,7 @@ router.delete('/:id', withAuth, (req,res) => {
         res.status(500).json(err);  
     });
 });
-// route to update username 
+
 
 
 router.post('/signin', (req, res) => {
