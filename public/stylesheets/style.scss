@@ -4,6 +4,7 @@ $butter: #FED2A1;
 $cream: #FEFFE7;
 $coffee-color-dark: darken($coffee-color, 10%);
 $neon-orange: #FF5F1F;
+$chocolate: #652817;
 $floating-box-shadow:
   0.045rem 0.045rem 1.8px rgba(#652817, 0.15),
   0.234rem .234rem 5px rgba(#652817, 0.25),
@@ -17,7 +18,7 @@ $theme-colors: (
     "mocha": #47362C,
     "cream": $cream,
     "coffee": $coffee-color,
-    "chocolate":#652817,
+    "chocolate":$chocolate,
     "butter": $butter,
     "warning": $neon-orange
 );
@@ -36,7 +37,12 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 a {
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
+    transition: color 0.2s linear
+}
+
+a:hover {
+    color: $neon-orange ;
 }
 
 nav {
@@ -125,6 +131,33 @@ nav {
     }
 
 }
+
+.gradient-btn {
+    outline: none; 
+    border: none; 
+    border-radius: 1.5rem; 
+    color: $chocolate; 
+    background-size: 1000% 100%; 
+    background-position: 0 0; 
+    background-size: 300% 100%; 
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    &:hover {
+        animation: gradient 10s linear infinite; 
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0% 0;
+    }
+}
+
 
 
 
