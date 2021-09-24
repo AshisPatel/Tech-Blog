@@ -14,14 +14,19 @@ router.get('/', withAuth, (req,res) => {
             attributes: ['username']
         }
     })
-    .then(dbPostData => {
+    .then(async dbPostData => {
         // serialize the data
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        console.log(posts);
+        const userObj = await User.findByPk(req.session.user_id);
+        const username = userObj.dataValues.username; 
+        console.log(`
+        Username is: ${username}
+        `);
         res.render('dashboard', {
             posts,
             signedIn: true,
-            username: req.session.username,
-            dashboard: true
+            username
         });
     })
     .catch(err => {
