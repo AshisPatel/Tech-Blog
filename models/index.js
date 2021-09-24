@@ -12,6 +12,7 @@ Post.belongsTo(User, {
 
 User.hasMany(Post, {
     foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 // A Comment can only belong to one User, but a User can have many Comments
 Comment.belongsTo(User, {
@@ -32,6 +33,7 @@ Comment.belongsTo(Post, {
 
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
+    onDelete: 'SET NULL'
 });
 
 module.exports = { User, Post, Comment };
