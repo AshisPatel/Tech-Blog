@@ -47,6 +47,8 @@ router.get('/post/:id', withAuth, (req,res) => {
             id: req.params.id
         },
         attributes: ['id', 'title', 'post_text', 'created_at'],
+        // Ordering includes does not work, instead have to place order outside of the include.
+        order: [[Comment, 'created_at', 'DESC']],
         include: [
             {
                 model: Comment,
