@@ -34,11 +34,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/signin', (req,res) => {
-    res.render('sign-in');
+    res.render('sign-in', { message: 'Something is wrong'});
 });
 
 router.get('/signup', (req,res) => {
-    res.render('sign-up', );
+    res.render('sign-up');
 });
 
 router.get('/post/:id', withAuth, (req,res) => {

@@ -22,7 +22,8 @@ const signinFormHandler = async function (event) {
             console.log('Signed in!');
             document.location.replace('/');
         } else {
-            alert(response.statusText);
+            console.log(response); 
+            if(response.status === 400) alert('Incorrect username or password');    
         }
     }
 
