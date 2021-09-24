@@ -104,6 +104,7 @@ router.post('/', (req,res) => {
     });
 });
 
+// LEAVE COMMENTED TILL FUTURE FEATURE IS FINISHED
 // router.put('/:id', withAuth, (req,res) => {
 //     User.update(req.body, {
 //         individualHooks: true,
@@ -150,8 +151,6 @@ router.delete('/:id', withAuth, (req,res) => {
         res.status(500).json(err);  
     });
 });
-// route to update username 
-
 
 router.post('/signin', (req, res) => {
 
