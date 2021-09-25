@@ -12,7 +12,7 @@
 
   View -- The pages created in handlebars are associated with the homepage, sign in, and sign up page, and when signed-in: the dashboard, single posts, and editing posts. There is some conditional formatting that uses a session variable to determine whether or not the user is signed in and will redirect the user to the sign up page if they are not signed in. There are two partials, one that loops through post information for the dashboard and the homepage, and a comment partial that loops through the comment information. Additionally, some helpers were created for handlebars to both format the date and show a shortened post text on the homepage. One more thing to note in the view is that all comments, and posts are listed in descending order. So, you should see the most recent content first! 
 
-  Controller -- There are separate api/routes that are designed to get and modify data from our main models, and then there are routes that are specific to rendering content based on route and fetch requests made by the main website. Furthermore, these routes are protected via our own middleware for authentication. 
+  Controller -- There are separate api/routes that are designed to get and modify data from our main models, and then there are routes that are specific to rendering content based on route and fetch requests made by the main website. Furthermore, these routes are protected via our own middleware for authentication. Additionally, the sessions middelware allows us to set a maximum inactivity timeout via the cookie maxAge key of 1 hour. Due to the sessions being 'rolling', this should cause the user's expiration time to be extended an hour everytime they interact with the page. 
 
   <h2>Future Changes or Thoughts For Next App</h2>
 
